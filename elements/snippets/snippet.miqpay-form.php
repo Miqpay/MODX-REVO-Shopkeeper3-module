@@ -5,8 +5,8 @@ if($_SESSION['shk_lastOrder']['payment'] == 'miqpay'){
     $publicKey = '';
     $secretKey = '';
     $language = 'ru';
-    $result_url = '';
-    $fail_url = '';
+    $resultUrl = '';
+    $failUrl = '';
 
     $params['amount'] = str_replace(',', '.', $_SESSION['shk_lastOrder']['price']);
     $params['currency'] = $_SESSION['shk_lastOrder']['currency'];
@@ -14,8 +14,8 @@ if($_SESSION['shk_lastOrder']['payment'] == 'miqpay'){
     $params['paymentType'] = 'app';
     $params['payment'] = 'ALL';
     $params['language'] = $language;
-    $params['result_url'] = $result_url;
-    $params['fail_url'] = $fail_url;
+    $params['resultUrl'] = $resultUrl;
+    $params['failUrl'] = $failUrl;
 
     $miqPay = new MiqPay($publicKey,$secretKey);
     $response = $miqPay->api('initPayment', $params);
